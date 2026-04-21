@@ -180,7 +180,7 @@ li {
 
 /* ================= HEADER ================= */
 header {
-  position: sticky;
+  position: relative;
   top: 0;
   z-index: 1000;
 
@@ -650,6 +650,33 @@ header .btn {
   transition: 0.4s ease;
 }
 
+.burger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  z-index: 1100;
+}
+
+.burger span {
+  width: 26px;
+  height: 2px;
+  background: var(--neon);
+  transition: 0.3s;
+}
+
+/* анимация в крестик */
+.burger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.burger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.burger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
 
 
 /* === HEADER ANIMATION === */
@@ -780,9 +807,50 @@ header._scrolled {
 }
 
 
-/* ====== 768px (tablet portrait) ====== */
 @media (max-width: 768px) {
 
+  /* HEADER FIX */
+  header .container {
+    flex-direction: row;
+  }
+
+  /* показываем бургер */
+  .burger {
+    display: flex;
+  }
+
+  /* скрываем обычное меню */
+  nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+
+    width: 100%;
+    padding: 30px 0;
+
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+
+    background: rgba(6, 20, 39, 0.98);
+    backdrop-filter: blur(12px);
+
+    border-bottom: 1px solid rgba(0,240,255,0.15);
+
+    display: none;
+    z-index: 1000; /* ВОТ ЭТО ЧАСТО ЗАБЫВАЮТ */
+  }
+
+  nav.active {
+    display: flex;
+  }
+
+  /* кнопка вниз */
+  header .btn {
+    display: none;
+  }
+
+  /* типографика */
   h1 {
     font-size: 32px;
   }
@@ -791,31 +859,69 @@ header._scrolled {
     font-size: 24px;
   }
 
-  header .container {
-    flex-direction: column;
-    gap: 12px;
-  }
-
-  nav {
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 15px;
-  }
-
   .contact {
-    padding: 100px 0;
+    padding: 80px 0;
   }
 
   .contact__title {
-    font-size: 34px;
+    font-size: 28px;
+    margin-bottom: 40px;
+    padding: 0 10px;
+  }
+
+  .contact-card {
+    grid-template-columns: 1fr;
+    gap: 25px;
+    padding: 0 10px;
+  }
+
+  .contact-card::before {
+    display: none;
+  }
+
+  .contact-card__info {
+    padding-left: 0;
+    text-align: center;
+  }
+
+  .contact-card__name {
+    font-size: 18px;
+    margin-bottom: 25px;
+    text-align: center;
+  }
+
+  .contact-card__row {
+    font-size: 15px;
+    justify-content: center;
+  }
+
+  .contact-card__cta {
+    padding: 22px 18px;
+    border-radius: 16px;
+  }
+
+  .cta-title {
+    font-size: 16px;
+  }
+
+  .cta-subtitle {
+    font-size: 12px;
   }
 
   .contact-card__links {
     flex-direction: column;
+    gap: 8px;
   }
 
   .contact-card__links .link {
     width: 100%;
+    font-size: 12px;
+  }
+
+  .contact .btn {
+    width: 100%;
+    font-size: 13px;
+    padding: 14px;
   }
 
   .footer {
@@ -824,7 +930,7 @@ header._scrolled {
 }
 
 
-/* ====== 576px (large phones) ====== */
+/* ====== 576px ====== */
 @media (max-width: 576px) {
 
   h1 {
@@ -847,11 +953,6 @@ header._scrolled {
     width: 92%;
   }
 
-  header .btn {
-    width: 100%;
-    text-align: center;
-  }
-
   .logo {
     font-size: 22px;
   }
@@ -861,17 +962,8 @@ header._scrolled {
     margin-bottom: 40px;
   }
 
-  .contact-card__name {
-    font-size: 18px;
-  }
-
-  .contact-card__row {
-    font-size: 16px;
-  }
-
   .contact-card__cta {
     padding: 30px 20px;
-    border-radius: 16px;
   }
 
   .contact .btn {
@@ -880,7 +972,7 @@ header._scrolled {
 }
 
 
-/* ====== 400px (small phones) ====== */
+/* ====== 400px ====== */
 @media (max-width: 400px) {
 
   h1 {
@@ -891,27 +983,11 @@ header._scrolled {
     font-size: 20px;
   }
 
-  nav {
-    gap: 10px;
-  }
-
   nav a {
     font-size: 14px;
   }
 
   .contact__title {
     font-size: 24px;
-  }
-
-  .contact-card__cta {
-    padding: 25px 16px;
-  }
-
-  .cta-title {
-    font-size: 16px;
-  }
-
-  .cta-subtitle {
-    font-size: 12px;
   }
 }
