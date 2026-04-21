@@ -1,0 +1,782 @@
+/* =========================
+   PROCESS SECTION
+   ========================= */
+
+.process {
+  padding: 140px 0;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(180deg, #061427 0%, #050d1a 100%);
+}
+
+.process__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.process__bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+
+  opacity: 0.50; /* регулируешь интенсивность */
+  filter: blur(0px) saturate(1.1) contrast(1.05);
+}
+
+.process .container {
+  position: relative;
+  z-index: 2;
+}
+
+.process::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background: radial-gradient(
+    circle at center,
+    rgba(5, 13, 26, 0.35) 0%,
+    rgba(5, 13, 26, 0.85) 55%,
+    rgba(5, 13, 26, 0.98) 100%
+  );
+
+  z-index: 1;
+}
+
+/* мягкий glow фон как в остальных секциях */
+.process::before {
+  content: "";
+  position: absolute;
+
+  width: 1100px;
+  height: 1100px;
+
+  left: 50px;
+  top: 50%;
+  transform: translateY(-50%, -50%);
+
+  background: radial-gradient(circle at left, rgba(0,240,255,0.10), transparent 60%);
+  filter: blur(80px);
+
+  pointer-events: none;
+}
+
+/* =========================
+   TITLE
+   ========================= */
+
+.process__title {
+  font-size: 42px;
+  font-weight: 800;
+  color: #fff;
+
+  text-align: center;
+
+  margin-bottom: 70px;
+
+  position: relative;
+  z-index: 2;
+}
+
+/* =========================
+   LIST LAYOUT
+   ========================= */
+
+.process__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px 30px;
+
+  position: relative;
+  z-index: 2;
+}
+
+/* центральная линия процесса (визуальный поток) */
+.process__list::before {
+  content: "";
+  position: absolute;
+
+  top: 10px;
+  bottom: 10px;
+  left: 50%;
+
+  width: 2px;
+
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(0,240,255,0.25),
+    transparent
+  );
+
+  transform: translateX(-50%);
+  z-index: 0;
+}
+
+/* =========================
+   ITEM CARD
+   ========================= */
+
+.process__item {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+
+  padding: 20px 22px;
+
+  background: rgba(10, 20, 35, 0.55);
+  border: 1px solid rgba(0, 240, 255, 0.18);
+  backdrop-filter: blur(12px);
+  border-radius: 16px;
+
+  transition: 0.3s ease;
+
+  position: relative;
+}
+
+/* hover эффект как у остальных секций */
+.process__item:hover {
+  transform: translateY(-5px);
+
+  border-color: rgba(0,240,255,0.35);
+
+  box-shadow: 0 10px 30px rgba(0,240,255,0.08);
+
+  background: linear-gradient(
+    145deg,
+    rgba(0,240,255,0.10),
+    rgba(255,255,255,0.03)
+  );
+}
+
+/* =========================
+   STEP NUMBER (UI BADGE)
+   ========================= */
+
+.process__num {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+
+  color: #00f0ff;
+
+  min-width: 42px;
+  height: 42px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 14px;
+
+  background: rgba(0,240,255,0.08);
+  border: 1px solid rgba(0,240,255,0.35);
+
+  box-shadow: 0 0 18px rgba(0,240,255,0.08);
+
+  flex-shrink: 0;
+}
+
+/* =========================
+   TEXT (MAIN CONTENT)
+   ========================= */
+
+.process__text {
+  font-size: 16px;
+  font-weight: 500;
+
+  color: rgba(255,255,255,0.92);
+
+  line-height: 1.4;
+
+  letter-spacing: 0.01em;
+
+  transition: 0.3s ease;
+}
+
+/* hover accent text */
+.process__item:hover .process__text {
+  color: #ffffff;
+}
+
+/* =========================
+   OPTIONAL DOT ACCENT
+   (дополнительная детализация)
+   ========================= */
+
+.process__item::before {
+  content: "";
+  position: absolute;
+
+  left: -6px;
+
+  width: 6px;
+  height: 6px;
+
+  background: #00f0ff;
+
+  border-radius: 50%;
+
+  box-shadow: 0 0 12px rgba(0,240,255,0.6);
+
+  opacity: 0.6;
+}
+
+
+
+
+
+
+
+/* =========================
+   CASES SECTION — PREMIUM
+   ========================= */
+
+.cases {
+  padding: 140px 0;
+  background: linear-gradient(180deg, #061427, #050d1a);
+  position: relative;
+  overflow: hidden;
+}
+
+/* soft neon glow */
+.cases::before {
+  content: "";
+  position: absolute;
+
+  width: 900px;
+  height: 900px;
+
+  right: -300px;
+  top: 50%;
+
+  transform: translateY(-50%);
+
+  background: radial-gradient(circle, rgba(0,240,255,0.12), transparent 65%);
+  filter: blur(70px);
+
+  pointer-events: none;
+}
+
+/* =========================
+   TITLE
+   ========================= */
+
+.cases__title {
+  font-size: 44px;
+  font-weight: 800;
+  color: #fff;
+
+  text-align: center;
+  margin-bottom: 70px;
+}
+
+/* =========================
+   GRID
+   ========================= */
+
+.cases-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+
+  position: relative;
+  z-index: 2;
+}
+
+/* =========================
+   CARD BASE
+   ========================= */
+
+.cases-card {
+  position: relative;
+
+  border-radius: 20px;
+
+  background: linear-gradient(
+    160deg,
+    rgba(255,255,255,0.06),
+    rgba(255,255,255,0.02)
+  );
+
+  border: 1px solid rgba(0,240,255,0.10);
+
+  backdrop-filter: blur(12px);
+  display: flex;
+  padding: 0;
+  overflow: hidden;
+
+  transition: 0.35s ease;
+
+  box-shadow:
+    0 10px 30px rgba(0,0,0,0.35),
+    inset 0 1px 0 rgba(255,255,255,0.04);
+}
+
+/* hover lift */
+.cases-card:hover {
+  transform: translateY(-10px) scale(1.01);
+
+  border-color: rgba(0,240,255,0.45);
+
+  box-shadow:
+    0 30px 80px rgba(0,240,255,0.12),
+    0 0 0 1px rgba(0,240,255,0.05);
+}
+
+/* top glow line */
+.cases-card::before {
+  content: "";
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 2px;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    #00f0ff,
+    transparent
+  );
+
+  opacity: 0;
+  transition: 0.3s ease;
+}
+
+.cases-card:hover::before {
+  opacity: 1;
+}
+
+/* scan light effect */
+.cases-card::after {
+  content: "";
+  position: absolute;
+
+  top: 0;
+  left: -60%;
+
+  width: 60%;
+  height: 100%;
+
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(0,240,255,0.08),
+    transparent
+  );
+
+  transform: skewX(-20deg);
+
+  opacity: 0;
+
+  transition: 0.6s ease;
+}
+
+.cases-card:hover::after {
+  left: 120%;
+  opacity: 1;
+}
+
+/* =========================
+   LABEL (CASE NAME)
+   ========================= */
+
+.cases-card__label {
+  display: inline-block;
+
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+
+  color: #00f0ff;
+
+  padding: 6px 10px;
+
+  border: 1px solid rgba(0,240,255,0.25);
+  border-radius: 10px;
+
+  background: rgba(0,240,255,0.05);
+
+  margin-bottom: 16px;
+}
+
+/* =========================
+   ROWS (DATA STYLE)
+   ========================= */
+
+.cases-card__row {
+  font-size: 15px;
+  color: rgba(255,255,255,0.70);
+
+  margin-bottom: 10px;
+
+  display: flex;
+  justify-content: space-between;
+
+  gap: 12px;
+}
+
+.cases-card__row span {
+  color: rgba(255,255,255,0.45);
+}
+
+/* =========================
+   MAIN VALUE (SUM)
+   ========================= */
+
+.cases-card__row:nth-child(3) {
+  font-size: 22px;
+  font-weight: 800;
+
+  color: #00f0ff;
+
+  margin: 8px 0 12px;
+
+  letter-spacing: 0.02em;
+
+  text-shadow: 0 0 18px rgba(0,240,255,0.18);
+}
+
+/* =========================
+   RESULT (FINAL LINE)
+   ========================= */
+
+.cases-card__row:last-child {
+  margin-top: 14px;
+
+  font-weight: 700;
+  color: #00f0ff;
+}
+
+.cases-card__content {
+  padding: 26px;
+  width: 55%;
+  z-index: 2;
+}
+
+/* изображение */
+.cases-card__image {
+  width: 45%;
+  position: relative;
+  overflow: hidden;
+}
+
+.cases-card__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: 0.5s ease;
+}
+
+.cases-card__image::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    180deg,
+    rgba(0,0,0,0.2),
+    rgba(0,0,0,0.7)
+  );
+}
+
+/* неоновый край */
+.cases-card__image::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background: radial-gradient(
+    circle at center,
+    rgba(0,240,255,0.15),
+    transparent 70%
+  );
+
+  opacity: 0;
+  transition: 0.4s;
+}
+
+/* hover эффект */
+.cases-card:hover .cases-card__image img {
+  transform: scale(1.08);
+}
+
+.cases-card:hover .cases-card__image::before {
+  opacity: 1;
+}
+
+/* направление */
+.cases-card--image-left {
+  flex-direction: row;
+}
+
+.cases-card--image-right {
+  flex-direction: row-reverse;
+}
+
+
+
+
+
+/* === SCROLL APPEAR === */
+.process,
+.cases {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease;
+}
+
+.process._visible,
+.cases._visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* === STAGGER ITEMS === */
+.process__item,
+.cases-card {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: 0.6s ease;
+}
+
+.process._visible .process__item,
+.cases._visible .cases-card {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* затримка */
+.process__item:nth-child(1) { transition-delay: 0.1s; }
+.process__item:nth-child(2) { transition-delay: 0.2s; }
+.process__item:nth-child(3) { transition-delay: 0.3s; }
+.process__item:nth-child(4) { transition-delay: 0.4s; }
+
+.cases-card:nth-child(1) { transition-delay: 0.1s; }
+.cases-card:nth-child(2) { transition-delay: 0.25s; }
+.cases-card:nth-child(3) { transition-delay: 0.4s; }
+
+/* === FLOW LINE (анімована лінія) === */
+@keyframes flowLine {
+  0% { background-position: 0% 0%; }
+  100% { background-position: 0% 100%; }
+}
+
+.process__list::before {
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(0,240,255,0.4),
+    transparent
+  );
+  background-size: 100% 200%;
+  animation: flowLine 4s linear infinite;
+}
+
+
+
+
+/* =========================
+   PROCESS + CASES RESPONSIVE
+   ========================= */
+
+/* ====== 1200px ====== */
+@media (max-width: 1200px) {
+
+  .process {
+    padding: 120px 0;
+  }
+
+  .process__title {
+    font-size: 38px;
+  }
+
+  .cases {
+    padding: 120px 0;
+  }
+
+  .cases__title {
+    font-size: 40px;
+  }
+
+  .cases-grid {
+    gap: 24px;
+  }
+}
+
+
+/* ====== 992px (tablet landscape) ====== */
+@media (max-width: 992px) {
+
+  .process {
+    padding: 100px 0;
+  }
+
+  .process__title {
+    font-size: 34px;
+    margin-bottom: 50px;
+  }
+
+  .process__list {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .process__list::before {
+    display: none;
+  }
+
+  .process__item {
+    padding: 18px;
+  }
+
+  .process::before {
+    width: 700px;
+    height: 700px;
+    left: 0;
+  }
+
+  .cases {
+    padding: 100px 0;
+  }
+
+  .cases__title {
+    font-size: 36px;
+    margin-bottom: 50px;
+  }
+
+  .cases-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cases-card {
+    flex-direction: column !important;
+  }
+
+  .cases-card__content,
+  .cases-card__image {
+    width: 100%;
+  }
+
+  .cases-card__image {
+    height: 240px;
+  }
+}
+
+
+/* ====== 768px (tablet portrait) ====== */
+@media (max-width: 768px) {
+
+  .process {
+    padding: 80px 0;
+  }
+
+  .process__title {
+    font-size: 30px;
+  }
+
+  .process__text {
+    font-size: 15px;
+  }
+
+  .process__num {
+    min-width: 38px;
+    height: 38px;
+    font-size: 11px;
+  }
+
+  .cases {
+    padding: 80px 0;
+  }
+
+  .cases__title {
+    font-size: 30px;
+  }
+
+  .cases-card__content {
+    padding: 20px;
+  }
+
+  .cases-card__row {
+    font-size: 14px;
+  }
+
+  .cases-card__row:nth-child(3) {
+    font-size: 20px;
+  }
+}
+
+
+/* ====== 576px (large phones) ====== */
+@media (max-width: 576px) {
+
+  .process__title {
+    font-size: 26px;
+  }
+
+  .process__item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .process__num {
+    width: 40px;
+    height: 40px;
+  }
+
+  .process__text {
+    font-size: 14px;
+  }
+
+  .cases__title {
+    font-size: 26px;
+  }
+
+  .cases-card__label {
+    font-size: 11px;
+  }
+
+  .cases-card__row {
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .cases-card__image {
+    height: 200px;
+  }
+}
+
+
+/* ====== 400px (small phones) ====== */
+@media (max-width: 400px) {
+
+  .process__title {
+    font-size: 22px;
+  }
+
+  .cases__title {
+    font-size: 22px;
+  }
+
+  .process__item {
+    padding: 14px;
+  }
+
+  .cases-card__content {
+    padding: 16px;
+  }
+
+  .cases-card__row:nth-child(3) {
+    font-size: 18px;
+  }
+}
