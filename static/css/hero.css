@@ -32,14 +32,23 @@
 }
 
 /* ================= TEXT ================= */
-.hero p {
+.hero__text p {
   font-size: 18px;
   line-height: 1.5;
   color: rgba(255, 255, 255, 0.75);
 }
 
+.hero__tagline {
+  font-size: 20px;
+  font-weight: 600;
+  color: #00f0ff;
+  margin-top: 6px;
+  text-align: center;
+  margin-left: -60px;
+}
+
 /* OFFER */
-.hero p:nth-of-type(3) {
+.hero__text p:nth-of-type(3) {
   margin-top: 25px;
   font-size: 20px;
   color: #00f0ff;
@@ -107,7 +116,10 @@
 
 .hero__image {
   position: absolute;
-  inset: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: -250px;
   z-index: 0;
 }
 
@@ -159,6 +171,27 @@
   transform: translateY(-50%);
 
   filter: blur(40px);
+}
+
+.hero__text {
+  max-width: 600px;
+
+  display: flex;
+  flex-direction: column;
+
+  min-height: 500px;
+  position: center;
+}
+
+/* БЛОК З КНОПКОЮ */
+.hero__cta {
+  position: absolute;
+  right: -620px;
+  bottom: 80px;
+
+  text-align: right;
+
+  max-width: 360px;
 }
 
 
@@ -244,6 +277,19 @@
   color: rgba(255, 255, 255, 0.75);
 }
 
+.stats__value {
+  transition: text-shadow 0.3s ease, transform 0.3s ease;
+}
+
+/* активная анимация */
+.stats__value.is-animating {
+  text-shadow:
+    0 0 10px rgba(0, 240, 255, 0.35),
+    0 0 25px rgba(0, 240, 255, 0.25),
+    0 0 45px rgba(0, 240, 255, 0.15);
+
+  transform: scale(1.08);
+}
 
 
 
@@ -264,7 +310,7 @@
 }
 
 /* =========================
-   HERO + STATS RESPONSIVE
+   HERO + STATS RESPONSIVE FIX
    ========================= */
 
 /* ====== 1200px ====== */
@@ -285,14 +331,27 @@
   .stats__value {
     font-size: 38px;
   }
+
+  /* FIX CTA */
+  .hero__cta {
+    right: -420px;
+    bottom: 60px;
+    max-width: 320px;
+  }
+
+  .hero__tagline {
+    margin-left: 0;
+    text-align: left;
+  }
 }
 
 
-/* ====== 992px (tablet landscape) ====== */
+/* ====== 992px ====== */
 @media (max-width: 992px) {
 
   .hero {
     padding: 100px 0;
+    min-height: auto;
   }
 
   .hero__inner {
@@ -303,6 +362,8 @@
 
   .hero__text {
     max-width: 100%;
+    min-height: auto;
+    z-index: 3;
   }
 
   .hero h1 {
@@ -313,14 +374,32 @@
     font-size: 17px;
   }
 
+  .hero__tagline {
+    margin-left: 0;
+    text-align: left;
+    font-size: 18px;
+  }
+
   .hero__image {
     position: absolute;
     inset: 0;
-    opacity: 0.35; /* делаем фон, а не блок контента */
+    top: 0;
+    opacity: 0.3;
   }
 
   .hero__image img {
     object-position: center;
+  }
+
+  /* CTA більше не вилітає */
+  .hero__cta {
+    position: relative;
+    right: auto;
+    bottom: auto;
+    margin-top: 32px;
+
+    max-width: 100%;
+    text-align: left;
   }
 
   .stats__grid {
@@ -334,15 +413,20 @@
 }
 
 
-/* ====== 768px (tablet portrait) ====== */
+/* ====== 768px ====== */
 @media (max-width: 768px) {
 
   .hero {
     padding: 80px 0;
   }
 
+  .hero__inner {
+    gap: 30px;
+  }
+
   .hero h1 {
     font-size: 36px;
+    line-height: 1.15;
   }
 
   .hero p {
@@ -353,10 +437,29 @@
     font-size: 17px;
   }
 
+  .hero__tagline {
+    font-size: 17px;
+  }
+
   .hero::after {
-    width: 500px;
-    height: 500px;
-    right: -200px;
+    width: 420px;
+    height: 420px;
+    right: -180px;
+    opacity: 0.8;
+  }
+
+  .hero__image::after {
+    background: linear-gradient(
+      180deg,
+      rgba(6, 20, 39, 0.88) 0%,
+      rgba(6, 20, 39, 0.65) 50%,
+      rgba(6, 20, 39, 0.55) 100%
+    );
+  }
+
+  .hero .btn {
+    padding: 13px 24px;
+    font-size: 15px;
   }
 
   .stats {
@@ -377,29 +480,57 @@
 }
 
 
-/* ====== 576px (large phones) ====== */
+/* ====== 576px ====== */
 @media (max-width: 576px) {
 
   .hero {
-    padding: 70px 0;
+    padding: 70px 0 60px;
   }
 
   .hero h1 {
     font-size: 30px;
     line-height: 1.2;
+    margin-bottom: 16px;
   }
 
   .hero p {
     font-size: 15px;
+    line-height: 1.5;
   }
 
   .hero p:nth-of-type(3) {
     font-size: 16px;
+    margin-top: 20px;
+  }
+
+  .hero__tagline {
+    font-size: 16px;
+    margin-top: 10px;
   }
 
   .hero .btn {
     width: 100%;
     text-align: center;
+    margin-top: 20px;
+  }
+
+  .hero__cta {
+    margin-top: 24px;
+  }
+
+  .hero__image {
+    opacity: 0.22;
+  }
+
+  .hero__image img {
+    object-position: 65% center;
+    transform: scale(1.08);
+  }
+
+  .hero::after {
+    width: 320px;
+    height: 320px;
+    right: -140px;
   }
 
   .stats__value {
@@ -412,8 +543,12 @@
 }
 
 
-/* ====== 400px (small phones) ====== */
+/* ====== 400px ====== */
 @media (max-width: 400px) {
+
+  .hero {
+    padding: 60px 0 50px;
+  }
 
   .hero h1 {
     font-size: 26px;
@@ -427,11 +562,22 @@
     font-size: 15px;
   }
 
+  .hero__tagline {
+    font-size: 15px;
+  }
+
+  .hero .btn {
+    padding: 12px 18px;
+    font-size: 14px;
+    border-radius: 14px;
+  }
+
   .stats__value {
     font-size: 22px;
   }
 
   .stats__item {
     padding: 20px 14px;
+    border-radius: 16px;
   }
 }

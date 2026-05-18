@@ -51,9 +51,12 @@
     <div class="hero__text">
 
       <h1>Виграємо тендери Prozorro під ключ</h1>
-      <p>Без помилок. Без дискваліфікацій. З результатом.</p>
-      <p>Проведемо безкоштовний аудит вашого тендера</p>
-      <a href="#" class="btn open-modal">Зв’язатись з нами</a>
+      <p class="hero__tagline">Без помилок. Без дискваліфікацій. З результатом.</p>
+
+      <div class="hero__cta">
+        <p>Проведемо безкоштовний аудит вашого тендера</p>
+        <a href="#" class="btn open-modal">Зв’язатись з нами</a>
+      </div>
     </div>
   </div>
 </section>
@@ -92,8 +95,33 @@
       <div class="service-card">
         <div class="service-header">
           <div class="service-left">
-            <div class="service-icon">
-              <svg viewBox="0 0 24 24"><path d="M4 19h16M4 15h10M4 11h14M4 7h8" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+            <div class="service-icon">>
+  <svg viewBox="0 0 24 24" fill="none">
+    <path
+      d="M12 4v16"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+    />
+    <path
+      d="M7 8h10"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+    />
+    <path
+      d="M7 8l-3 5h6z"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linejoin="round"
+    />
+    <path
+      d="M17 8l-3 5h6z"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linejoin="round"
+    />
+  </svg>
             </div>
             <h3>Аналіз тендерів</h3>
           </div>
@@ -349,12 +377,9 @@
 
     <div class="transition__content">
 
-      <h2>Ви втрачали тендер через:</h2>
+      <h2>Ви втрачали тендер через?</h2>
 
-<!--      <p class="transition__lead">-->
-<!--        Ви втрачали тендер через:-->
-<!--      </p>-->
-
+      <div class="transition__problems-wrapper">
       <p class="transition__problems">
         · помилки в документах
 <!--        · незрозумілі вимоги · дискваліфікації · нестачу часу-->
@@ -375,7 +400,7 @@
       <p class="transition__result">
         Ми беремо процес під контроль і доводимо до результату
       </p>
-
+      </div>
     </div>
 
     <div class="transition__visual">
@@ -387,6 +412,9 @@
 
 
 <section id="benefits" class="benefits">
+  <div class="benefits__bg">
+    <img src="static/img/benefits-bg.png" alt="benefits background">
+  </div>
   <div class="container benefits__inner">
 
     <h2 class="benefits__title">Що ви отримуєте</h2>
@@ -473,9 +501,8 @@
 
 <section id="process" class="process">
   <div class="process__bg">
-    <img src="static/img/process-bg.png" alt="process background">
+    <img src="static/img/process.png" alt="process background">
   </div>
-
   <div class="container">
 
     <h2 class="process__title">Як ми працюємо?</h2>

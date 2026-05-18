@@ -21,9 +21,15 @@
   height: 100%;
   object-fit: cover;
 
-  opacity: 0.50; /* регулируешь интенсивность */
-  filter: blur(0px) saturate(1.1) contrast(1.05);
+  opacity: 0.9;
+
+  filter:
+    brightness(0.8)
+    blur(0px)
+    saturate(1.15)
+    contrast(1.05);
 }
+
 
 .process .container {
   position: relative;

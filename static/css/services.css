@@ -42,16 +42,66 @@
 
 .services-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+
+  grid-template-columns: repeat(12, 1fr);
+
   gap: 28px;
+
   position: relative;
   z-index: 2;
+
+  align-items: start;
 }
 
 /* разный ритм */
-.service-card:nth-child(1),
+.service-card:nth-child(1) {
+  grid-column: span 5;
+}
+
+.service-card:nth-child(2) {
+  grid-column: span 4;
+  margin-top: 60px;
+}
+
+.service-card:nth-child(3) {
+  grid-column: span 3;
+}
+
 .service-card:nth-child(4) {
-  grid-column: span 2;
+  grid-column: span 4;
+  margin-top: -30px;
+}
+
+.service-card:nth-child(5) {
+  grid-column: span 5;
+}
+
+.service-card:nth-child(6) {
+  grid-column: span 3;
+  margin-top: 70px;
+}
+
+.service-card:nth-child(7) {
+  grid-column: span 4;
+}
+
+.service-card:nth-child(8) {
+  grid-column: span 5;
+  margin-top: -40px;
+}
+
+.service-card:nth-child(9) {
+  grid-column: span 3;
+}
+
+.service-card:nth-child(10) {
+  grid-column: span 6;
+  margin-top: 50px;
+}
+
+.service-card:nth-child(11) {
+  grid-column: span 6;
+  margin-top: -20px;
 }
 
 .service-card {
@@ -275,10 +325,9 @@
     grid-template-columns: repeat(2, 1fr);
   }
 
-  /* убираем сложный layout span — иначе ломается на мобилках */
-  .service-card:nth-child(1),
-  .service-card:nth-child(4) {
-    grid-column: auto;
+  .service-card {
+    grid-column: span 1 !important;
+    margin-top: 0 !important;
   }
 }
 
