@@ -364,6 +364,7 @@
     max-width: 100%;
     min-height: auto;
     z-index: 3;
+    text-align: center;
   }
 
   .hero h1 {
@@ -376,7 +377,9 @@
 
   .hero__tagline {
     margin-left: 0;
-    text-align: left;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
     font-size: 18px;
   }
 
@@ -399,7 +402,7 @@
     margin-top: 32px;
 
     max-width: 100%;
-    text-align: left;
+    text-align: center;
   }
 
   .stats__grid {

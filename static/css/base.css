@@ -826,6 +826,60 @@ header._scrolled {
 
   color: rgba(255,255,255,0.72);
 }
+
+/* =========================
+   ADDRESS
+   ========================= */
+
+.contact-card__address {
+  margin: 0;
+  color: rgba(255,255,255,0.82);
+  line-height: 1.6;
+}
+
+.contact-card__map-link {
+  display: inline-block;
+  margin-top: 10px;
+
+  color: #00f0ff;
+  text-decoration: none;
+
+  font-size: 14px;
+
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.contact-card__map-link:hover {
+  opacity: 0.8;
+  transform: translateX(4px);
+}
+
+/* =========================
+   MAP BLOCK
+   ========================= */
+
+.contact-map {
+  max-width: 950px;   /* 👈 головне — не на всю ширину */
+  margin: 40px auto 0;
+  border-radius: 18px;
+  overflow: hidden;
+
+  box-shadow: 0 10px 40px rgba(0,0,0,0.25);
+  background: #fff;
+  opacity: 1 !important;
+  position: relative;
+}
+
+.contact-map iframe {
+  display: block;
+  width: 100%;
+  border: 0;
+  opacity: 1 !important;
+  filter: none !important;
+}
+
+
+
 /* =========================
    RESPONSIVE DESIGN
    ========================= */
@@ -910,6 +964,10 @@ header._scrolled {
 
   .contact__bg img {
     object-position: center;
+  }
+
+  .contact-map iframe {
+    height: 280px;
   }
 }
 
@@ -1028,6 +1086,22 @@ header._scrolled {
     margin-bottom: 22px;
   }
 
+  .contact-card__address {
+    font-size: 14px;
+    text-align: center;
+  }
+
+  .contact-card__map-link {
+    font-size: 13px;
+    text-align: center;
+  }
+
+  .contact-card__group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
   .contact-card__links {
     width: 100%;
     flex-direction: column;
@@ -1051,6 +1125,15 @@ header._scrolled {
 
   .footer {
     padding: 60px 0 30px;
+  }
+
+  .contact-map {
+    margin-top: 30px;
+    border-radius: 14px;
+  }
+
+  .contact-map iframe {
+    height: 240px;
   }
 }
 
@@ -1133,6 +1216,15 @@ header._scrolled {
     border-radius: 12px;
   }
 
+  .contact-card__address {
+    font-size: 13px;
+    line-height: 1.5;
+  }
+
+  .contact-card__map-link {
+    font-size: 12px;
+  }
+
   .footer {
     padding: 50px 0 25px;
   }
@@ -1144,6 +1236,15 @@ header._scrolled {
 
   .footer__bottom p {
     font-size: 11px;
+  }
+
+  .contact-map {
+    margin-top: 24px;
+    border-radius: 12px;
+  }
+
+  .contact-map iframe {
+    height: 220px;
   }
 }
 
@@ -1205,5 +1306,17 @@ header._scrolled {
   .contact .btn {
     min-height: 46px;
     font-size: 12px;
+  }
+
+  .contact-card__address {
+    font-size: 12px;
+  }
+
+  .contact-card__map-link {
+    font-size: 11px;
+  }
+
+  .contact-map iframe {
+    height: 200px;
   }
 }
