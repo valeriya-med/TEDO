@@ -730,29 +730,31 @@
 /* === SCROLL APPEAR === */
 .process,
 .cases {
-  opacity: 0;
-  transform: translateY(40px);
-  transition: all 0.8s ease;
+  opacity: 1; /* важливо: НЕ ховаємо по дефолту */
+  transform: none;
 }
 
 .process._visible,
 .cases._visible {
   opacity: 1;
   transform: translateY(0);
-}
-
-/* === STAGGER ITEMS === */
-.process__item,
-.cases-card {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: 0.6s ease;
+  transition: all 0.8s ease;
 }
 
 .process._visible .process__item,
 .cases._visible .cases-card {
-  opacity: 1;
-  transform: translateY(0);
+  animation: fadeUp 0.6s ease forwards;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* затримка */
@@ -770,6 +772,18 @@
   0% { background-position: 0% 0%; }
   100% { background-position: 0% 100%; }
 }
+
+.process._visible .process__item:nth-child(1),
+.cases._visible .cases-card:nth-child(1) { animation-delay: 0.05s; }
+
+.process._visible .process__item:nth-child(2),
+.cases._visible .cases-card:nth-child(2) { animation-delay: 0.1s; }
+
+.process._visible .process__item:nth-child(3),
+.cases._visible .cases-card:nth-child(3) { animation-delay: 0.15s; }
+
+.process._visible .process__item:nth-child(4),
+.cases._visible .cases-card:nth-child(4) { animation-delay: 0.2s; }
 
 
 
@@ -831,6 +845,19 @@
 }
 
 @media (max-width: 768px) {
+
+  .process,
+  .cases {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .process__item,
+  .cases-card {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
 
   .process__item,
   .cases-card,
