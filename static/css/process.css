@@ -757,16 +757,6 @@
   }
 }
 
-/* затримка */
-.process__item:nth-child(1) { transition-delay: 0.1s; }
-.process__item:nth-child(2) { transition-delay: 0.2s; }
-.process__item:nth-child(3) { transition-delay: 0.3s; }
-.process__item:nth-child(4) { transition-delay: 0.4s; }
-
-.cases-card:nth-child(1) { transition-delay: 0.1s; }
-.cases-card:nth-child(2) { transition-delay: 0.25s; }
-.cases-card:nth-child(3) { transition-delay: 0.4s; }
-
 /* === FLOW LINE (анімована лінія) === */
 @keyframes flowLine {
   0% { background-position: 0% 0%; }
@@ -875,12 +865,18 @@
   }
 
   /* remove heavy effects */
-  * {
-    backdrop-filter: none !important;
+  .process__item,
+  .cases-card,
+  .cases-accents__item {
+    backdrop-filter: none;
   }
 
   .cases::before {
     display: none;
+  }
+
+  .cases-accents {
+    grid-template-columns: 1fr;
   }
 
   .process::before {
@@ -888,12 +884,25 @@
   }
 
   .cases-card__image {
-    height: 220px;
+    aspect-ratio: 16 / 9;
+    height: auto;
   }
 
   .cases-card__row:nth-child(4) {
     font-size: 20px;
   }
+}
+
+@media (hover: hover) {
+
+  .cases-card:hover {
+    transform: translateY(-6px);
+  }
+
+  .process__item:hover {
+    transform: translateY(-5px);
+  }
+
 }
 
 
