@@ -911,6 +911,57 @@
   .cases-card__row:nth-child(3) {
     font-size: 20px;
   }
+
+  .cases-grid {
+    gap: 16px;
+  }
+
+  .cases-card {
+    min-height: auto;
+  }
+
+  .cases-card__image {
+    width: 100%;
+    height: 200px;
+  }
+
+  .cases-card__image img {
+    height: 100%;
+    object-fit: cover;
+  }
+
+  * {
+    backdrop-filter: none !important;
+    text-shadow: none !important;
+  }
+
+  .cases-card,
+  .contact-card__cta,
+  .stats__item,
+  .cases-accents__item {
+    box-shadow: none !important;
+  }
+
+  .cases::before,
+  .contact::after,
+  .hero::after {
+    display: none !important;
+  }
+
+  .cases-card__image::before,
+  .cases-card__image::after {
+    display: none !important;
+  }
+
+  .process,
+  .cases,
+  .cases-card,
+  .contact-card {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+    transition: none !important;
+  }
 }
 
 
